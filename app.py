@@ -19,10 +19,14 @@ def get_days():
 
 @app.route("/<str:nombre>", methods=["GET"])
 def Saludo(nombre):
-    return f"Hola {nombre}"
+    return jsonify(f"Hola {nombre}")
 
-
-
+@app.route("/conteo", methods=["GET"])
+def conteo(numero):
+    numeros = []
+    for i in range(numero):
+        numeros.append(i)
+    return jsonify(numeros)
 
 @app.route("/<int:day_id>", methods=["GET"])
 def get_day(day_id):
@@ -35,6 +39,7 @@ def get_day(day_id):
 @app.route("/", methods=["POST"])
 def post_days():
     return jsonify({"success": True}), 201
+
 
 
 if __name__ == "__main__":
