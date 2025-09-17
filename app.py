@@ -17,6 +17,12 @@ app = Flask(__name__)
 def get_days():
     return jsonify(days)
 
+@app.route("/<str:nombre>", methods=["GET"])
+def Saludo(nombre):
+    return f"Hola {nombre}"
+
+
+
 
 @app.route("/<int:day_id>", methods=["GET"])
 def get_day(day_id):
